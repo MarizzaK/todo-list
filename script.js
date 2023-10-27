@@ -1,6 +1,5 @@
-/* "const todos" är en variabel som fått ett värde "todos" som inte kan ändras under promgramkörningen då den är konstant.
-    Variablen har blivit tilldelad en tom lista, []. Denna lista som kan sedan lagra data som användare skriver in. */
-const todos = [];
+/*  Variablen har blivit tilldelad en tom lista, []. Denna lista som kan sedan lagra data som användare skriver in. */
+let todos = [];
 
 /* I HTML har input fått id "input-box". Detta för att kunna hämta elementet till javascript.
    Alltså för att kunna ge den egenskaper med javascript. 
@@ -88,14 +87,21 @@ function toggleTask(index) {
 function removeTask(index) {
   todos.splice(index, 1);
 
-  /*uppdaterar*/
+  /* sparar data */
   saveData();
+
+  /* uppdaterar */
   displayTasks();
 }
 //---------------------------------------------------------------------------------------------------------------------------------------//
+
+/* Denna funktion gör att todos listan sparas i webbläsarens lagring. 
+Data sparas, återstår även när sidan uppdateras/laddas om eller stängs. */
 function saveData() {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+/*Denna funktion hämtar lagrad data. JSON sträng-> javascript-array-> den översätts.*/
 function showList() {
   const savedData = localStorage.getItem("todos");
   if (savedData) {

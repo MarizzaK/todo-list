@@ -96,8 +96,6 @@ button:focus-visible {
   }
 }
 */
-/*-------------------------------------------MOBILE MODE------------------------------------------------*/
-/*-------------------------------------------DESKTOP MODE------------------------------------------------*/
 
 html {
   height: 100%;
@@ -168,7 +166,7 @@ ul li::before {
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  background-image: url(assets/empty_circel.jpeg);
+  background-image: url(assets/empty_circle.jpeg);
   background-size: cover;
   background-position: center;
   top: 12px;
@@ -179,7 +177,7 @@ ul li.checked {
   text-decoration: line-through;
 }
 ul li.checked::before {
-  background-image: url(assets/checked_circel.jpeg);
+  background-image: url(assets/checked_circle.jpg);
 }
 ul li span {
   position: absolute;

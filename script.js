@@ -1,6 +1,9 @@
 /*  Variablen har blivit tilldelad en tom lista, []. Denna lista som kan sedan lagra data som användare skriver in. */
-let todos = [];
-
+let todos = [
+  { text: "Task 1", completed: false },
+  { text: "Task 2", completed: false },
+  { text: "Task 3", completed: false },
+];
 /* I HTML har input fått id "input-box". Detta för att kunna hämta elementet till javascript.
    Alltså för att kunna ge den egenskaper med javascript. 
    Den konstanta variablen = hämtar det element objekt som representerar det element som har de id som matchar den specifika stringen. */
@@ -24,6 +27,19 @@ function addTask() {
    todos.push(newTask) adderar nytt objekt/tasks till todos listan, variabel som kan hålla mer än ett värde.
    displayTasks gör att allt uppdateras och visas på skärmen, displayen.
    inputBox.value har en tom tring -> = ""; detta gör att efter ny task har adderats så blir inputytan/boxen tom igen för att skrivas i igen på nytt. */
+
+    if (taskText === "") {
+      alert("You must write something!");
+    } else {
+      const newTask = {
+        text: taskText,
+        completed: false,
+      };
+      todos.push(newTask);
+      inputBox.value = "";
+      saveData();
+      displayTasks();
+    }
   } else {
     const newTask = {
       text: taskText,
@@ -112,4 +128,7 @@ function showList() {
     displayTasks();
   }
 }
-showList();
+document.addEventListener("DOMContentLoaded", function () {
+  showList();
+  displayTasks();
+});
